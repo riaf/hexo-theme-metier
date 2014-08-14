@@ -1,0 +1,15 @@
+##
+# theme settings
+
+logo: //res.cloudinary.com/riaf/image/upload/v1408026052/blog/riaf.png
+eyecatchImage: //farm3.staticflickr.com/2567/3661473709_5f2086e5aa_b.jpg
+closerImage: //farm3.staticflickr.com/2536/4029414208_0e92495b45_b.jpg
+
+author:
+  bio: Co-Founder and Engineer at Crocos Inc.
+  avatar: //res.cloudinary.com/riaf/image/facebook/w_250,h_250,c_thumb/sato.keisuke.png
+
+facebook:
+  appId: 185424988144288
+
+googleAnalyticsId: UA-33449755-1

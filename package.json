@@ -1,0 +1,28 @@
+{
+  "name": "hexo-theme-metier",
+  "private": true,
+  "version": "0.1.0",
+  "description": "hexo-theme-metier =================",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riaf/hexo-theme-metier"
+  },
+  "author": "Keisuke SATO <sato.keisuke@facebook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riaf/hexo-theme-metier/issues"
+  },
+  "homepage": "https://github.com/riaf/hexo-theme-metier",
+  "devDependencies": {
+    "coffee-script": "1.7.x",
+    "gulp": "3.8.x",
+    "gulp-concat": "2.3.x",
+    "gulp-rename": "1.2.x",
+    "gulp-sass": "0.7.x",
+    "gulp-uglify": "0.3.x",
+    "gulp-zip": "1.0.x"
+  }
+}

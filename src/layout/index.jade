@@ -1,0 +1,50 @@
+extends _base
+
+block body
+
+  .eyecatch
+    .eyecatch-image(style='background-image: url(#{ theme.eyecatchImage })')
+      Metier
+
+  header.blog-header
+    if theme.logo
+      a.blog-logo(href=config.root, style='background-image: url(#{ theme.logo })')= config.title
+    h1.blog-title= config.title
+    if config.subtitle
+      h2.blog-description= config.subtitle
+
+  main.content(role='main')
+    // h5.index-headline.featured
+    //   span Featured
+
+    .container.featured
+      each post in page.posts.toArray()
+        article(itemscope, itemtype='http://schema.org/BlogPosting', role='article')
+          .article-item
+            header.post-header
+              h2.post-title(itemprop='name')
+                a(href=url_for(post.path), itemprop='url')= post.title
+            section.post-excerpt(itemprop='description')
+              if post.excerpt
+                p #{ strip_html(post.excerpt) }&hellip;
+              else
+                p #{ strip_html(post.content).substr(0, 220) }&hellip;
+            .post-meta
+              time(datetime=date(post.date, null))= date(post.date, null)
+              if post.categories
+                span.post-tags-set
+                  each category in post.categories.toArray()
+                    | ,&nbsp;
+                    a(href=url_for(category.path))= category.name
+
+    .pagination!= paginator()
+
+  footer.site-footer
+    a.subscribe.fa.fa-rss(href=url_for('atom.xml'))
+      span.tooltip &nbsp;Subscribe!
+    .inner
+      section.copyright
+        | All content copyright 
+        a(href=config.root)= config.title 
+        | &nbsp;&copy; #{ date(Date.now(), 'YYYY') } &bull; All rights reserved.
+

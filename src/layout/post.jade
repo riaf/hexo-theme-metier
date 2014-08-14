@@ -1,0 +1,95 @@
+extends _base
+
+block vars
+  - var bodyClass = 'post post-template';
+
+block body
+  - var post = page;
+
+  main.content(role='main')
+    article
+
+      if articleImage
+        .article-image
+          .post-image-image Article Image
+          .post-meta
+            h1.post-title post.title
+            .post-meta-text
+              .author-image(style='background-image: url(#{ theme.author.avatar });') Blog Logo
+              h4.author-name(itemprop='author', itemscope itemtype='http://schema.org/Person')= config.author
+              | &nbsp;on&nbsp;
+              time(datetime=date(post.date, 'YYYY-MM-DD'))= date(post.date, 'DD MMM YYYY')
+              if post.categories
+                span.post-tags-set
+                  each category in post.categories.toArray()
+                    | ,&nbsp;
+                    a(href=url_for(category.path))= category.name
+              .text-center
+                a.topofpage(href='#top')
+                  i.fa.fa-angle-down
+      else
+        .noarticleimage
+          .post-meta
+            h1.post-title= post.title
+            .post-meta-text
+              .author-image(style='background-image: url(#{ theme.author.avatar });') Blog Logo
+              h4.author-name(itemprop='author', itemscope itemtype='http://schema.org/Person')= config.author
+              | &nbsp;on&nbsp;
+              time(datetime=date(post.date, 'YYYY-MM-DD'))= date(post.date, 'DD MMM YYYY')
+              if post.categories
+                span.post-tags-set
+                  each category in post.categories.toArray()
+                    | ,&nbsp;
+                    a(href=url_for(category.path))= category.name
+
+      section.post-content
+        .post-reading
+          span.post-reading-time
+          | &nbsp;read
+        a(name='top')
+
+        != post.content
+
+      footer.post-footer
+        section.share
+          a.fa.fa-twitter(href='https://twitter.com/share', target='_blank', data-url=post.permalink, data-text=post.title)
+          a.fa.fa-facebook.dialog(href='https://www.facebook.com/sharer/sharer.php?u=#{ post.permalink}')
+          a.fa.fa-google-plus.dialog(href='https://plus.google.com/share?url=#{ post.permalink}')
+
+        .bottom-teaser
+          .pull-left
+            h5.index-headline.featured
+              span Written by
+            section.author
+              div.author-image(style='background-image: url(#{ theme.author.avatar })') Blog Logo
+              h4= config.author
+              p.bio= theme.author.bio
+              hr
+              p.published
+                | Published&nbsp;
+                time(datetime=date(post.date, 'YYYY-MM-DD'))= date(post.date, 'DD MMM YYYY')
+          .pull-right
+            h5.index-headline.featured
+              span Supported by
+            footer.site-footer
+              section.poweredby
+                | Proudly published with&nbsp;
+                a(href='http://hexo.io') Hexo
+              a.subscribe(href=url_for('atom.xml'))
+                span.tooltip You shoud subscribe to my RSS feed.
+              .inner
+                section.copyright
+                  | All content copyright&nbsp;
+                  a(href=config.root)= config.title
+                  | &nbsp;&copy; #{ date(Date.now(), 'YYYY') }
+                  br
+                  | All rights reserved.
+
+  .bottom-closer
+    .background-closer-image(style='background-image: url(#{ theme.closerImage })')
+    .inner
+      h1.blog-title= config.title
+      if config.subtitle
+        h2.blog-description= config.subtitle
+      a.btn(href=config.root) Back to Overview
+

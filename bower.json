@@ -1,0 +1,21 @@
+{
+  "name": "hexo-theme-metier",
+  "version": "0.0.0",
+  "homepage": "https://github.com/riaf/hexo-theme-metier",
+  "authors": [
+    "Keisuke SATO <sato.keisuke@facebook.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "modularized-normalize-scss": "3.x",
+    "bourbon": "3.2.x",
+    "jquery": "2.x"
+  }
+}
