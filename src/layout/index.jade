@@ -31,11 +31,11 @@ block body
                 p #{ strip_html(post.content).substr(0, 220) }&hellip;
             .post-meta
               time(datetime=date(post.date, null))= date(post.date, null)
-              if post.categories
+              if post.tags
                 span.post-tags-set
-                  each category in post.categories.toArray()
+                  each tag in post.tags.toArray()
                     | ,&nbsp;
-                    a(href=url_for(category.path))= category.name
+                    a(href=url_for(tag.path))= tag.name
 
     .pagination!= paginator()
 

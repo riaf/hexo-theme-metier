@@ -19,11 +19,11 @@ block body
               h4.author-name(itemprop='author', itemscope itemtype='http://schema.org/Person')= config.author
               | &nbsp;on&nbsp;
               time(datetime=date(post.date, 'YYYY-MM-DD'))= date(post.date, 'DD MMM YYYY')
-              if post.categories
+              if post.tags
                 span.post-tags-set
-                  each category in post.categories.toArray()
+                  each tag in post.tags.toArray()
                     | ,&nbsp;
-                    a(href=url_for(category.path))= category.name
+                    a(href=url_for(tag.path))= tag.name
               .text-center
                 a.topofpage(href='#top')
                   i.fa.fa-angle-down
@@ -36,11 +36,11 @@ block body
               h4.author-name(itemprop='author', itemscope itemtype='http://schema.org/Person')= config.author
               | &nbsp;on&nbsp;
               time(datetime=date(post.date, 'YYYY-MM-DD'))= date(post.date, 'DD MMM YYYY')
-              if post.categories
+              if post.tags
                 span.post-tags-set
-                  each category in post.categories.toArray()
+                  each tag in post.tags.toArray()
                     | ,&nbsp;
-                    a(href=url_for(category.path))= category.name
+                    a(href=url_for(tag.path))= tag.name
 
       section.post-content
         .post-reading
